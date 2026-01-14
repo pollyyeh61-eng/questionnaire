@@ -109,6 +109,13 @@
             border: 1px solid var(--primary-gold);
         }
 
+        .gift-hint {
+            color: #f5576c;
+            font-weight: 800;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
         .btn-submit {
             display: inline-block;
             padding: 18px 45px;
@@ -144,11 +151,8 @@
         <p>找出您的經營盲點，從「勞力輸出」晉升「系統獲利」</p>
     </div>
 
-    <form action="https://formspree.io/f/mlggeqlj" method="POST">
+    <form id="my-form" action="https://formspree.io/f/mlggeqlj" method="POST">
         
-        <input type="hidden" name="_next" value="https://mentor.hairweb.net/">
-        <input type="hidden" name="_subject" value="新美業診斷問卷回覆！">
-
         <div class="question-card">
             <span class="question-text">請問您的姓名或店名？</span>
             <input type="text" name="聯絡資訊" class="input-text" placeholder="例：活力美髮店 / 王小明" required>
@@ -162,93 +166,13 @@
                 <label class="option-label"><input type="radio" name="Q01_預約方式" value="自動系統"> 自動化線上預約系統</label>
             </div>
         </div>
-
-        <div class="question-card">
-            <span class="question-text">2. 結帳與營業額統計，您目前如何處理？</span>
-            <div class="options">
-                <label class="option-label"><input type="radio" name="Q02_結帳記帳" value="手寫記帳" required> 手寫記帳，月底再計算</label>
-                <label class="option-label"><input type="radio" name="Q02_結帳記帳" value="Excel表格"> 使用簡易 Excel 表格彙整</label>
-                <label class="option-label"><input type="radio" name="Q02_結帳記帳" value="雲端系統"> 系統自動產出即時報表與數據分析</label>
-            </div>
-        </div>
-
-        <div class="question-card">
-            <span class="question-text">3. 您是否能「一鍵」得知店內耗材與產品的精確庫存？</span>
-            <div class="options">
-                <label class="option-label"><input type="radio" name="Q03_庫存管理" value="手動清點" required> 沒辦法，都要親自去倉庫清點</label>
-                <label class="option-label"><input type="radio" name="Q03_庫存管理" value="部分記錄"> 偶爾記錄，但不夠精準</label>
-                <label class="option-label"><input type="radio" name="Q03_庫存管理" value="自動扣庫"> 是的，系統與銷貨自動扣庫存</label>
-            </div>
-        </div>
-
-        <div class="question-card">
-            <span class="question-text">4. 對於員工或合作夥伴的分潤獎金，您的計算效率如何？</span>
-            <div class="options">
-                <label class="option-label"><input type="radio" name="Q04_分潤效率" value="人工對帳" required> 每個月都要花好幾個小時人工對帳</label>
-                <label class="option-label"><input type="radio" name="Q04_分潤效率" value="表格輔助"> 有表格輔助，但還是容易出錯</label>
-                <label class="option-label"><input type="radio" name="Q04_分潤效率" value="系統結算"> 系統自動結算，公開透明且精準</label>
-            </div>
-        </div>
-
-        <div class="question-card">
-            <span class="question-text">5. 當您休假不在店裡時，您能掌握當下的經營狀況嗎？</span>
-            <div class="options">
-                <label class="option-label"><input type="radio" name="Q05_遠端掌控" value="完全不行" required> 完全不行，要問員工才知道</label>
-                <label class="option-label"><input type="radio" name="Q05_遠端掌控" value="監視器電話"> 透過監視器或電話詢問</label>
-                <label class="option-label"><input type="radio" name="Q05_遠端掌控" value="App即時"> 打開 App 即可查看即時業績與客況</label>
-            </div>
-        </div>
-
-        <div class="question-card">
-            <span class="question-text">6. 您的店面有針對熟客設計「自動化」的升等或集點制度嗎？</span>
-            <div class="options">
-                <label class="option-label"><input type="radio" name="Q06_會員制度" value="紙本或無" required> 沒有，或是只靠紙本集點卡</label>
-                <label class="option-label"><input type="radio" name="Q06_會員制度" value="口頭告知"> 有口頭告知優惠，但缺乏系統記錄</label>
-                <label class="option-label"><input type="radio" name="Q06_會員制度" value="數位自動"> 有數位化的會員等級與自動積分系統</label>
-            </div>
-        </div>
-
-        <div class="question-card">
-            <span class="question-text">7. 對於「新客源」的開發，您目前主要的策略是？</span>
-            <div class="options">
-                <label class="option-label"><input type="radio" name="Q07_新客開發" value="靠運氣" required> 靠運氣或路過客人</label>
-                <label class="option-label"><input type="radio" name="Q07_新客開發" value="社群無數據"> 偶爾發發臉書/IG，但效果難以評估</label>
-                <label class="option-label"><input type="radio" name="Q07_新客開發" value="系統導流"> 有系統化導流與推薦獎勵機制</label>
-            </div>
-        </div>
-
-        <div class="question-card">
-            <span class="question-text">8. 您是否覺得每天被行政庶務（算錢、訂貨、排班）綁架？</span>
-            <div class="options">
-                <label class="option-label"><input type="radio" name="Q08_行政壓力" value="極高壓力" required> 是的，體力與大腦都感到精疲力竭</label>
-                <label class="option-label"><input type="radio" name="Q08_行政壓力" value="尚可忍受"> 有點煩瑣，但還能忍受</label>
-                <label class="option-label"><input type="radio" name="Q08_行政壓力" value="輕鬆專業"> 不會，我大部分時間專注在技術與決策</label>
-            </div>
-        </div>
-
-        <div class="question-card">
-            <span class="question-text">9. 您是否有系統地收集並分析「客戶消費偏好」？</span>
-            <div class="options">
-                <label class="option-label"><input type="radio" name="Q09_數據分析" value="無數據" required> 只憑腦袋記憶，沒有數據</label>
-                <label class="option-label"><input type="radio" name="Q09_數據分析" value="有記無用"> 有簡單記錄，但很少拿出來分析</label>
-                <label class="option-label"><input type="radio" name="Q09_數據分析" value="精準分析"> 是的，我有完整的數位化客戶畫像</label>
-            </div>
-        </div>
-
-        <div class="question-card">
-            <span class="question-text">10. 如果要再開一家分店，您現有的管理模式可以直接複製嗎？</span>
-            <div class="options">
-                <label class="option-label"><input type="radio" name="Q10_擴展性" value="無法複製" required> 不行，因為所有事都要我親自處理</label>
-                <label class="option-label"><input type="radio" name="Q10_擴展性" value="混亂複製"> 可能可以，但會非常混亂</label>
-                <label class="option-label"><input type="radio" name="Q10_擴展性" value="系統複製"> 可以，我有一套數位系統化流程</label>
-            </div>
-        </div>
-
+        
         <div class="footer-cta">
             <h3 style="margin-top:0">檢測完成！</h3>
-            <p>點擊下方按鈕送出診斷，將自動跳轉至維度提升方案頁面。</p>
+            <div class="gift-hint">🎁 送出問卷後，將自動領取「贈品 APP」</div>
+            <p id="my-form-status"></p>
             <br>
-            <button type="submit" class="btn-submit">送出診斷並查看方案</button>
+            <button id="my-form-button" class="btn-submit">送出診斷並領取贈品 APP</button>
         </div>
     </form>
 
@@ -256,6 +180,48 @@
         VITALITY HAIR ACADEMY © 2026
     </footer>
 </div>
+
+<script>
+    var form = document.getElementById("my-form");
+    
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("my-form-status");
+      var button = document.getElementById("my-form-button");
+      var data = new FormData(event.target);
+      
+      button.disabled = true;
+      button.innerHTML = "正在分析結果並導向贈品頁...";
+
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          // 成功後直接強制跳轉
+          window.location.replace("https://mentor.hairweb.net/");
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+            } else {
+              status.innerHTML = "Oops! 送出時發生問題，請再試一次。";
+            }
+          })
+          button.disabled = false;
+          button.innerHTML = "送出診斷並領取贈品 APP";
+        }
+      }).catch(error => {
+        // 即使出錯，為了使用者體驗，我們也強制跳轉
+        console.log("Error, but redirecting anyway...");
+        window.location.replace("https://mentor.hairweb.net/");
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
+</script>
 
 </body>
 </html>
