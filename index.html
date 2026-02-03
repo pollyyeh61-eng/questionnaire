@@ -27,6 +27,8 @@
             line-height: 1.6;
             margin: 0;
             padding: 40px 20px;
+            /* 套用校長要求的黃金比例字級 */
+            font-size: 19px; 
         }
 
         .survey-container { max-width: 700px; margin: 0 auto; }
@@ -35,7 +37,7 @@
             background: var(--colorful-gold);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 10px;
         }
 
@@ -48,15 +50,17 @@
             animation: border-glow 4s infinite ease-in-out;
         }
 
-        .question-text { font-size: 1.1rem; font-weight: 700; margin-bottom: 15px; display: block; color: #2c3e50; }
+        /* 調整問題文字為黃金比例 20px */
+        .question-text { font-size: 20px; font-weight: 700; margin-bottom: 15px; display: block; color: #2c3e50; }
         .options { display: flex; flex-direction: column; gap: 10px; }
         .option-label {
             display: flex; align-items: center; padding: 12px 15px;
             border: 1px solid #eee; border-radius: 10px; cursor: pointer; transition: 0.3s;
+            font-size: 18px;
         }
         .option-label:hover { background-color: #fffaf0; border-color: var(--primary-gold); }
         .option-label input { margin-right: 12px; accent-color: var(--primary-gold); }
-        .input-text { width: 100%; padding: 12px; margin-top: 10px; border-radius: 8px; border: 1px solid #ddd; box-sizing: border-box; }
+        .input-text { width: 100%; padding: 12px; margin-top: 10px; border-radius: 8px; border: 1px solid #ddd; box-sizing: border-box; font-size: 18px; }
 
         .btn-submit {
             display: inline-block; padding: 18px 45px; background: var(--colorful-gold);
@@ -68,7 +72,7 @@
 
         /* 結果頁面樣式 */
         .result-title { color: var(--primary-gold); font-size: 1.5rem; font-weight: 900; margin-bottom: 15px; text-align: center; }
-        .result-content { font-size: 1.05rem; border-left: 4px solid var(--primary-gold); padding-left: 15px; margin: 20px 0; }
+        .result-content { font-size: 19px; border-left: 4px solid var(--primary-gold); padding-left: 15px; margin: 20px 0; }
         .gift-badge { background: #ff7675; color: white; padding: 5px 15px; border-radius: 20px; font-weight: 800; display: inline-block; margin-bottom: 10px; }
 
         @media (max-width: 600px) {
@@ -87,6 +91,11 @@
 
     <form id="diag-form" action="https://formspree.io/f/mlggeqlj" method="POST">
         <input type="hidden" name="_subject" value="【新診斷通知】美業診斷問卷回覆！">
+
+        <div class="question-card" style="background-color: #fffdf5;">
+            <span class="question-text">請留下 Gmail，讓我把 App 寄給您：</span>
+            <input type="email" name="Email" class="input-text" placeholder="example@gmail.com" required>
+        </div>
 
         <div class="question-card">
             <span class="question-text">請問您的姓名或店名？</span>
@@ -210,9 +219,7 @@
     const resultArea = document.getElementById('result-area');
     const analysisText = document.getElementById('analysis-text');
 
-    // 第一階段：計算分數並顯示結果
     function calculateResult() {
-        // 檢查是否所有題目都填了
         if (!form.checkValidity()) {
             alert("請先完成所有問題的填寫喔！");
             form.reportValidity();
@@ -222,10 +229,9 @@
         const formData = new FormData(form);
         let score = 0;
         
-        // 簡單計分邏輯
-        for (let value of formData.values()) {
-            if (value === "Mid") score += 1;
-            if (value === "High") score += 2;
+        for (let entry of formData.entries()) {
+            if (entry[1] === "Mid") score += 1;
+            if (entry[1] === "High") score += 2;
         }
 
         let diagnosis = "";
@@ -243,7 +249,6 @@
         window.scrollTo(0, 0);
     }
 
-    // 第二階段：發送 Email 並跳轉
     function submitAndRedirect() {
         const btn = document.getElementById('final-btn');
         const status = document.getElementById('status-msg');
@@ -259,7 +264,6 @@
             body: formData,
             headers: { 'Accept': 'application/json' }
         }).then(response => {
-            // 不論成功失敗，都跳轉到 APP，確保使用者拿到贈品
             window.location.replace("https://mentor.hairweb.net/");
         }).catch(error => {
             window.location.replace("https://mentor.hairweb.net/");
@@ -269,5 +273,3 @@
 
 </body>
 </html>
-
-
